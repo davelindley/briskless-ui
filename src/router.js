@@ -11,6 +11,7 @@ import SendReceiveProfiles from "./views/SendRecieveProfiles"
 import SocialMedia from './views/SocialMedia'
 import Articles from './views/Articles'
 import Notes from './views/Notes'
+import Favorites from "./views/Favorites";
 
 Vue.use(Router)
 
@@ -72,6 +73,11 @@ export default new Router({
         path: '/notes',
         name: 'notes',
         component: Notes
+    },
+      {
+        path: '/favorites',
+        name: 'favorites',
+        component: Favorites
     },
 
 
