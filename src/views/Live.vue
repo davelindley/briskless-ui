@@ -3,7 +3,7 @@
         <h1 >Monitor Your Cook Here</h1>
         <v-layout row>
             <v-flex xs12 md6 lg4>
-                <chart-temp :curve-data="curveData" :time="time" class="mx-1" ></chart-temp>
+                <main-chart class="mx-1" ></main-chart>
             </v-flex>
         </v-layout>
         <v-layout row wrap>
@@ -81,12 +81,12 @@
 </template>
 
 <script>
-import ChartTemp from './ChartTemp'
+import MainChart from '../components/MainChart.vue'
 
 	export default {
 		name: "Live",
         components:{
-			ChartTemp
+			MainChart
         },
 		data(){
 			return{
@@ -97,9 +97,7 @@ import ChartTemp from './ChartTemp'
                     'Firmer',
                     'Tenderer',
                     'Tender'
-                ],
-                curveData:[75, 110, 145, 165, 182, 203, 185, 140, 110, this.goalTemp]
-
+                ]
 			}
 		},
         methods:{
