@@ -2,7 +2,7 @@
   <v-app>
   <Navbar app/>
     <v-content>
-      <v-container fluid>
+      <v-container fluid px-0 ma-0>
       <router-view></router-view>
         </v-container>
     </v-content>
@@ -26,3 +26,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  .container {
+    padding: 10px 5px;
+  }
+
+
+</style>

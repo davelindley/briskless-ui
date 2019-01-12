@@ -1,13 +1,12 @@
 <template>
     <v-container fluid>
-        <h1 >Monitor Your Cook Here</h1>
         <v-layout row>
             <v-flex xs12 md6 lg4>
                 <main-chart class="mx-1" ></main-chart>
             </v-flex>
         </v-layout>
         <v-layout row wrap>
-            <v-flex xs9 md3>
+            <v-flex xs10 md3>
 
             <v-slider
               v-model=goalTemp
@@ -18,7 +17,7 @@
 
           </v-flex>
 
-          <v-flex xs3 md1>
+          <v-flex xs2 md1>
             <v-text-field
               v-model=goalTemp
               label="Temp"
@@ -30,7 +29,7 @@
           </v-flex>
 
 
-            <v-flex xs9 md3>
+            <v-flex xs10 md3>
             <v-slider
               v-model=time
               :min="1"
@@ -39,7 +38,7 @@
             ></v-slider>
           </v-flex>
 
-          <v-flex xs3 md1>
+          <v-flex xs2 md1>
             <v-text-field
                     label="Hours"
               v-model=time
@@ -47,6 +46,7 @@
               type="number"
               full-width
               right
+                    px-0
             ></v-text-field>
           </v-flex>
 
@@ -55,7 +55,7 @@
               <v-slider
                 :tick-labels="doneness"
                 :tick-size="3"
-                :value="[0, 1]"
+                :value="2"
                 min="0"
                 max="3"
                 thumb-label
