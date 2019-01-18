@@ -1,18 +1,18 @@
 # briskless-ui
 
 ## TODO
-    - [x] Build Dummy Pages
-    - [x] Route Dummy pages
-    - [x] Build Menus
-    - [x] Implement chart library
-    - [x] Get API reading into chart
-    - [ ] Get data from thermocouple streaming to firebase
-    - [ ] Link chart to firebase with live updating 
-    - [ ] Add User Authentication
-    - [ ] Add User Profile and settings
-    - [ ] Implement as PWA
-    - [ ] Additional feature pages (tbd)
-    - [ ] Offline Mode
+- [x] Build Dummy Pages
+- [x] Route Dummy pages
+- [x] Build Menus
+- [x] Implement chart library
+- [x] Get API reading into chart
+- [ ] Get data from thermocouple streaming to firebase
+- [ ] Link chart to firebase with live updating 
+- [ ] Add User Authentication
+- [ ] Add User Profile and settings
+- [ ] Implement as PWA
+- [ ] Additional feature pages (tbd)
+- [ ] Offline Mode
     
     
 
