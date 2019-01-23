@@ -1,8 +1,12 @@
 <template>
+<div>
+    <highcharts :options="chartOptions" :updateArgs="chartOptions.updateArgs"></highcharts>
 
-    <highcharts :options="chartOptions" :updateArgs="updateArgs"></highcharts>
+    <ul v-for="value in cook">
+        <li>{{value.timestamp.seconds}} -- {{value.temp}}</li>
+    </ul>
 
-
+</div>
 
 </template>
 
@@ -10,11 +14,25 @@
 <script>
     import {Chart} from 'highcharts-vue'
     import axios from 'axios'
+    import { db } from '../firebase.js'
+
     export default {
         name:"MainChart",
+        firestore(){
+        	return{
+
+                cook: db.collection('GALLAGHER_NICK').doc('8JIknOsHxb6VFrmbxA89').collection('data').orderBy('x')
+            }
+		},
   data(){
       return{
-        chartOptions: {
+      	holder:[],
+        }},
+    components:{
+            highcharts:Chart
+    },
+        computed:{
+            chartOptions(){ return {
         chart: {
           type: 'area',
             zoomType:'x'
@@ -27,37 +45,49 @@
           text: 'Live Cook'
         },
         series: [{
-          data: '',
+        	name: 'Live Cook Temp',
+          //  removes all data from firebase response except x and y.
+          data: this.cook.map(({x,y}) => ({x, y})),
           color: '#6fcd98'
         }],
             yAxis:{
-            visible:false,
             labels:{
-                enabled:false,
+                enabled:true,
                 padding:'0px',
             }},
             xAxis:{
             type:'datetime'
             },
-          updateArgs:[true, true, {duration: 1000}]
+          updateArgs:[true, true, {duration: 500}]
 
-      }}},
-    components:{
-            highcharts:Chart
-    },
-
+      }}}
+        // ,
+        // mounted(){
+        //     // this.updateData()
+        //     this.snapshotToArray(this.cook)
+        // }
+        // computed:{
+        // 	dataForChart(){
+        // 		temp_array=[]
+        // 		db.on('value', function(snap){
+        //            snap.forEach(function(childNodes){
+        //            	temp_array.push(childNodes.val().timestamp)
+		// 		   })})
+        // 		return temp_array
+        //     }
+    // }
+        ,
+        mounted()
+             {
+              this.chartOptions.series[0]['data'].setData(this.cook,true)
+            },
         methods:{
-            updateData(){
-                axios
-          .get('https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json')
-          .then(response => (
-            this.chartOptions.series[0].data = response.data))
-                }
+        	redraw(){
+        		this.chartOptions.series[0]['data'].setData(this.cook,true)
+            }
         },
-        mounted(){
-            this.updateData()
-    },
     }
+
 </script>
 
 ]
