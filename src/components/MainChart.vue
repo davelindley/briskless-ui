@@ -24,10 +24,6 @@
                 cook: db.collection('GALLAGHER_NICK').doc('8JIknOsHxb6VFrmbxA89').collection('data').orderBy('x')
             }
 		},
-  data(){
-      return{
-      	holder:[],
-        }},
     components:{
             highcharts:Chart
     },
@@ -60,33 +56,7 @@
             },
           updateArgs:[true, true, {duration: 500}]
 
-      }}}
-        // ,
-        // mounted(){
-        //     // this.updateData()
-        //     this.snapshotToArray(this.cook)
-        // }
-        // computed:{
-        // 	dataForChart(){
-        // 		temp_array=[]
-        // 		db.on('value', function(snap){
-        //            snap.forEach(function(childNodes){
-        //            	temp_array.push(childNodes.val().timestamp)
-		// 		   })})
-        // 		return temp_array
-        //     }
-    // }
-        ,
-        mounted()
-             {
-              this.chartOptions.series[0]['data'].setData(this.cook,true)
-            },
-        methods:{
-        	redraw(){
-        		this.chartOptions.series[0]['data'].setData(this.cook,true)
-            }
-        },
-    }
+      }}}}
 
 </script>
 
