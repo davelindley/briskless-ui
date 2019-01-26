@@ -6,8 +6,8 @@
 - [x] Build Menus
 - [x] Implement chart library
 - [x] Get API reading into chart
-- [ ] Get data from thermocouple streaming to firebase
-- [ ] Link chart to firebase with live updating 
+- [x] Get data from thermocouple streaming to firebase
+- [x] Link chart to firebase with live updating 
 - [ ] Add User Authentication
 - [ ] Add User Profile and settings
 - [ ] Implement as PWA
