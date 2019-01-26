@@ -53,7 +53,7 @@
 					xAxis: {
 						type: 'datetime'
 					},
-                    //
+                    //https://api.highcharts.com/class-reference/Highcharts.Chart#update
 					updateArgs: [true, true, {duration: 500}]
 
 				}
