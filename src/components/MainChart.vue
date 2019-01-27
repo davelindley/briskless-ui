@@ -6,14 +6,13 @@
 <script>
 	import {Chart} from 'highcharts-vue'
 	import {db} from '../firebase.js'
-
 	export default {
 		name: "MainChart",
 		firestore() {
 			return {
                 //collection and document id - these come from firebase.
                 //This will need to be handled as variables (props) eventually.
-				cook: db.collection('Dave Friday Test').doc('cXUJN8rX85tUerPlw0Go').collection('data').orderBy('x')
+				cook: db.collection('Dave Pi Zero').doc('EanFEXXiroq8zBmnZwN5').collection('data').orderBy('x')
 			}
 		},
 		components: {
