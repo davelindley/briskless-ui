@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "62b8fc7532d107fa7182",
-    "url": "/briskless-ui/css/app.21c2359a.css"
+    "revision": "c3297e4f937b3e85f683",
+    "url": "/briskless-ui/css/app.cf7ad0b8.css"
   },
   {
-    "revision": "62b8fc7532d107fa7182",
-    "url": "/briskless-ui/js/app.bf181a7e.js"
+    "revision": "c3297e4f937b3e85f683",
+    "url": "/briskless-ui/js/app.443cac40.js"
   },
   {
     "revision": "9e489438b5a8df366cf6",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/briskless-ui/js/chunk-vendors.99039fb9.js"
   },
   {
-    "revision": "7a96de2192833868ee2735fd164831aa",
+    "revision": "d6c1ba89eca3ca63539a9e351b42cdc2",
     "url": "/briskless-ui/index.html"
   },
   {
