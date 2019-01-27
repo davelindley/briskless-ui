@@ -10,7 +10,7 @@
 - [x] Link chart to firebase with live updating 
 - [ ] Add User Authentication
 - [ ] Add User Profile and settings
-- [ ] Implement as PWA
+- [x] Implement as PWA
 - [ ] Additional feature pages (tbd)
 - [ ] Offline Mode
     

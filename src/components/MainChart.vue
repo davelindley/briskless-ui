@@ -45,9 +45,10 @@
 					}],
 					yAxis: {
 						labels: {
-							enabled: true,
+							enabled: false,
 							padding: '0px',
-						}
+						},
+                        visible:false
 					},
 					xAxis: {
 						type: 'datetime'
