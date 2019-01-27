@@ -33,7 +33,7 @@
 							'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
 					},
 					title: {
-						text: 'Live Cook'
+						text: 'Monitor Cook'
 					},
 					series: [{
 						name: 'Live Cook Temp',
