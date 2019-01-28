@@ -41,7 +41,7 @@
 						data: this.cook.map(({x, y}) => ({x, y})),
 						color: '#6fcd98',
                         //this configures the maximum amount of points on the chart
-						turboThreshold: 10000,
+						turboThreshold: 1000000,
 					}],
 					yAxis: {
 						labels: {
