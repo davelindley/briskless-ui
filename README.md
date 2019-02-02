@@ -1,4 +1,5 @@
 # briskless-ui
+!(Build Status)[https://travis-ci.org/davelindley/briskless-ui.svg?branch=master]
 
 ## TODO
 - [x] Build Dummy Pages
