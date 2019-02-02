@@ -12,7 +12,7 @@
 			return {
                 //collection and document id - these come from firebase.
                 //This will need to be handled as variables (props) eventually.
-				cook: db.collection('Dave Pi Zero').doc('EanFEXXiroq8zBmnZwN5').collection('data').orderBy('x')
+				cook: db.collection('Daves Living Room Live Feed').doc('EtBnrwNdrVyOLpHBUev0').collection('data').orderBy('x')
 			}
 		},
 		components: {
