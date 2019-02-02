@@ -2,7 +2,9 @@ language: node_js
 node_js:
   - "8"
 
-install: "npm install --save @firebase/app @firebase/firestore highcharts-vue vue-firestore"
+install:
+  - "npm install --save highcharts"
+  - "npm install --save @firebase/app @firebase/firestore highcharts-vue vue-firestore"
 
 script:
   - "npm run build"
