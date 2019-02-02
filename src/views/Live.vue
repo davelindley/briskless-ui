@@ -83,29 +83,29 @@
 <script>
 import MainChart from '../components/MainChart.vue'
 
-	export default {
-		name: "Live",
+    export default {
+        name: "Live",
         components:{
-			MainChart
+            MainChart
         },
-		data(){
-			return{
+        data(){
+            return{
                 goalTemp:203,
                 time:14,
                 doneness:[
-                	'Firm',
+                    'Firm',
                     'Firmer',
                     'Tenderer',
                     'Tender'
                 ]
-			}
-		},
+            }
+        },
         methods:{
-			getDoneness(val){
-				return this.doneness[val]
+            getDoneness(val){
+                return this.doneness[val]
             }
         }
-	}
+    }
 </script>
 
 <style scoped>
