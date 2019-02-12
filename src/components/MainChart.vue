@@ -1,18 +1,19 @@
 <template>
-        <highcharts :options="chartOptions" :updateArgs="chartOptions.updateArgs"></highcharts>
+    <highcharts :options="chartOptions" :updateArgs="chartOptions.updateArgs"></highcharts>
 </template>
 
 
 <script>
 	import {Chart} from 'highcharts-vue'
 	import {db} from '../firebase.js'
+
 	export default {
 		name: "MainChart",
 		firestore() {
 			return {
-                //collection and document id - these come from firebase.
-                //This will need to be handled as variables (props) eventually.
-				cook: db.collection('Daves Living Room Live Feed').doc('EtBnrwNdrVyOLpHBUev0').collection('data').orderBy('x')
+				//collection and document id - these come from firebase.
+				//This will need to be handled as variables (props) eventually.
+				cook: db.collection('Dave - Ribs - 2.2.2019').doc('c0hyoskBaJKzX6wbamKz').collection('data').orderBy('x')
 			}
 		},
 		components: {
@@ -38,9 +39,9 @@
 					series: [{
 						name: 'Live Cook Temp',
 						//  removes all data from firebase response except x and y.
-						data: this.cook.map(({x, y}) => ({x, y})),
+						data: this.cook_data,
 						color: '#6fcd98',
-                        //this configures the maximum amount of points on the chart
+						//this configures the maximum amount of points on the chart
 						turboThreshold: 0,
 					}],
 					yAxis: {
@@ -48,16 +49,22 @@
 							enabled: false,
 							padding: '0px',
 						},
-                        visible:false
+						visible: false
 					},
 					xAxis: {
 						type: 'datetime'
 					},
-                    //https://api.highcharts.com/class-reference/Highcharts.Chart#update
+					//https://api.highcharts.com/class-reference/Highcharts.Chart#update
 					updateArgs: [true, true, {duration: 500}]
 
 				}
-			}}}
+			}
+		}
+		,
+		props: [
+			'cook_data'
+		]
+	}
 </script>
 
 <style scoped>
@@ -65,3 +72,4 @@
 
 </style>
 
+<!--.map(({x, y}) => ({x, y}))-->

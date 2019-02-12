@@ -2,10 +2,47 @@
     <v-container fluid>
         <v-layout row>
             <v-flex xs12 md6 lg4>
-                <main-chart class="mx-1" ></main-chart>
+                <main-chart class="mx-1" :cook_data="cook"></main-chart>
             </v-flex>
         </v-layout>
-        <v-layout row wrap>
+
+        <v-layout row wrap justify-center>
+            <v-flex xs6 md3>
+
+            <v-progress-circular
+              :rotate="360"
+              :size="150"
+              :width="15"
+              :value="temp/goalTemp*100"
+              color="teal"
+                >
+                <div>
+                    <p class="dial_title">Temp:</p>
+                    <p class="dial_text">{{temp}}</p>
+                </div>
+
+    </v-progress-circular>
+        </v-flex>
+            <v-flex xs6 md3>
+
+            <v-progress-circular
+              :rotate="360"
+              :size="150"
+              :width="15"
+              :value="velocity/goalVelocity * 100"
+              color="teal"
+                >
+                <div>
+                    <p class="dial_title">Velocity:</p>
+                    <p class="dial_text">{{velocity}}</p>
+                </div>
+
+
+    </v-progress-circular>
+</v-flex>
+
+
+
             <v-flex xs10 md3>
 
             <v-slider
@@ -81,16 +118,28 @@
 </template>
 
 <script>
+import {db} from '../firebase.js'
 import MainChart from '../components/MainChart.vue'
 
     export default {
         name: "Live",
+
+        firestore() {
+			return {
+                //collection and document id - these come from firebase.
+                //This will need to be handled as variables (props) eventually.
+				cook: db.collection('Dave - Ribs - 2.2.2019').doc('c0hyoskBaJKzX6wbamKz').collection('data').orderBy('x')
+			}
+		},
+
         components:{
             MainChart
         },
         data(){
             return{
+            	temp:185,
                 goalTemp:203,
+                goalVelocity:5,
                 time:14,
                 doneness:[
                     'Firm',
@@ -103,11 +152,30 @@ import MainChart from '../components/MainChart.vue'
         methods:{
             getDoneness(val){
                 return this.doneness[val]
-            }
+            },
+
+        },
+        computed:{
+        	velocity(){
+        		return Number(0.00000000000000007048*Math.pow(this.temp,7.29007299056)).toPrecision(4)
+            },
+
+
         }
-    }
+        }
 </script>
 
 <style scoped>
+    p.dial_text{
+        font-size: 38px;
+        text-align: center;
+    }
 
+    p.dial_title{
+        padding-top:20px;
+        font-size:20px;
+        text-align: center;
+        margin-bottom: 0;
+    }
 </style>
+
