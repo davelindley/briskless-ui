@@ -1,8 +1,13 @@
 <template>
-    <v-flex xs12 height="100px">
-    <highcharts :options="chartOptions" :updateArgs="chartOptions.updateArgs"></highcharts>
-        </v-flex>
-
+  <v-flex
+    xs12
+    height="100px"
+  >
+    <highcharts
+      :options="chartOptions"
+      :update-args="chartOptions.updateArgs"
+    />
+  </v-flex>
 </template>
 
 
@@ -11,105 +16,88 @@
 	import {db} from '../firebase.js'
 
 	export default {
-		name: "gauge",
-		firestore() {
-			return {
-				//collection and document id - these come from firebase.
-				//This will need to be handled as variables (props) eventually.
-				cook: db.collection('Dave - Ribs - 2.2.2019').doc('c0hyoskBaJKzX6wbamKz').collection('data').orderBy('x')
-			}
-		},
 		components: {
 			highcharts: Chart
 		},
+		props:
+			[
+				'title',
+                'value',
+                'max',
+                'min',
+                'subtitle'
+                ]
+        ,
 		computed: {
 
 			chartOptions() {
 				//configuration options available at https://api.highcharts.com/highcharts/
 				return  { chart: {
-        type: 'gauge',
+        type: 'solidgauge',
+         height:150,
     },
 
-    title: {
-        text: 'Temp'
-    },
+    title: null,
 
     pane: {
-        startAngle: -120,
-        endAngle: 120,
-        background: [{
-            backgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, '#FFF'],
-                    [1, '#333']
-                ]
-            },
-            borderWidth: 0,
-            outerRadius: '109%'
-        }, {
-            backgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, '#333'],
-                    [1, '#FFF']
-                ]
-            },
-            borderWidth: 1,
-            outerRadius: '107%'
-        }, {
-            // default background
-        }, {
-            backgroundColor: '#DDD',
-            borderWidth: 0,
-            outerRadius: '105%',
-            innerRadius: '103%'
-        }]
+        center: ['50%', '90%'],
+        size: '140%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor: '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
     },
+
+    tooltip: {
+        enabled: false
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 3,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    },
+
     yAxis: {
-        min: 60,
-        max: 203,
-
-        minorTickInterval: 'auto',
-        minorTickWidth: 1,
-        minorTickLength: 10,
-        minorTickPosition: 'inside',
-        minorTickColor: '#666',
-
-        tickPixelInterval: 30,
-        tickWidth: 2,
-        tickPosition: 'inside',
-        tickLength: 10,
-        tickColor: '#666',
-        labels: {
-            step: 2,
-            rotation: 'auto'
-        },
+        min: this.min,
+        max: this.max,
         title: {
-            text: 'Temp'
-        },
-        plotBands: [{
-            from: 60,
-            to: 150,
-            color: '#55BF3B' // green
-        }, {
-            from: 150,
-            to: 190,
-            color: '#DDDF0D' // yellow
-        }, {
-            from: 190,
-            to: 203,
-            color: '#DF5353' // red
-        }]
+            text: this.title,
+            align:'high',
+            textAlign:'center',
+            style:{
+            	"font-size":"18px"
+            },
+            y:-10
+
+        }
+    },
+
+    credits: {
+        enabled: false
     },
 
     series: [{
-        name: 'Speed',
-        data: [142],
+        name: 'Temp',
+        data: [this.value],
+        dataLabels: {
+            format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                ('black') + '">{y}</span><br/>' +
+                   '<span style="font-size:12px;color:silver">'+(this.subtitle)+'</span></div>'
+        },
         tooltip: {
-            valueSuffix: ' Degrees'
+            valueSuffix: '<h1>Deg<h1>'
         }
     }]
+
 
 }}}}
 </script>
