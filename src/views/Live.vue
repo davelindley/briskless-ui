@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout row>
+    <v-layout row wrap>
       <v-flex
         lg4
         md6
@@ -11,9 +11,7 @@
           class="mx-1"
         />
       </v-flex>
-    </v-layout>
-    <v-layout>
-      <v-flex
+        <v-flex
         xs6
         md3
       >
@@ -38,6 +36,14 @@
           subtitle="Chews"
         />
       </v-flex>
+
+
+
+
+
+    </v-layout>
+    <v-layout>
+
     </v-layout>
 
 
