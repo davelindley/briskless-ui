@@ -6,7 +6,7 @@ import Start from './views/Start'
 import Archive from './views/Archive'
 import SmokerProfiles from './views/SmokerProfiles'
 import Preferences from './views/Preferences'
-import LocationSettings from './views/LocationSettings'
+import CookSettings from './views/Settings'
 import SendReceiveProfiles from "./views/SendRecieveProfiles"
 import SocialMedia from './views/SocialMedia'
 import Articles from './views/Articles'
@@ -50,9 +50,9 @@ export default new Router({
         component: Preferences
     },
       {
-        path: '/location_settings',
-        name: 'location_settings',
-        component: LocationSettings
+        path: '/cook_settings',
+        name: 'cook_settings',
+        component: CookSettings
     },
       {
         path: '/send_receive_profiles',
@@ -79,8 +79,6 @@ export default new Router({
         name: 'favorites',
         component: Favorites
     },
-
-
 
   ]
 })
