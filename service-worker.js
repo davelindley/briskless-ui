@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.c91971fdf7be274dbbfbbd85a9647526.js"
+  "/precache-manifest.ba87ce0a94d1ec6f3bada2525501a687.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "briskless-ui"});
