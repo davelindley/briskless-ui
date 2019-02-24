@@ -11,7 +11,7 @@ import SendReceiveProfiles from "./views/SendRecieveProfiles"
 import SocialMedia from './views/SocialMedia'
 import Articles from './views/Articles'
 import Notes from './views/Notes'
-import Favorites from "./views/Favorites";
+import Favorites from "./views/Favorites"
 import Login from "./views/Login"
 import SignUp from "./views/SignUp"
 
@@ -91,6 +91,5 @@ export default new Router({
 		  name: 'signup',
 		  component: SignUp
 	  }
-
   ]
 })
