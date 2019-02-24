@@ -1,24 +1,22 @@
 <template>
-    <highcharts :options="chartOptions" :updateArgs="chartOptions.updateArgs"></highcharts>
+    <highcharts
+            :options="chartOptions"
+            :update-args="chartOptions.updateArgs"
+    />
 </template>
 
 
 <script>
 	import {Chart} from 'highcharts-vue'
-	import {db} from '../firebase.js'
 
 	export default {
 		name: "MainChart",
-		firestore() {
-			return {
-				//collection and document id - these come from firebase.
-				//This will need to be handled as variables (props) eventually.
-				cook: db.collection('Dave - Ribs - 2.2.2019').doc('c0hyoskBaJKzX6wbamKz').collection('data').orderBy('x')
-			}
-		},
 		components: {
 			highcharts: Chart
 		},
+		props: [
+			'cookData'
+		],
 		computed: {
 
 			chartOptions() {
@@ -27,6 +25,7 @@
 					chart: {
 						type: 'area',
 						zoomType: 'x'
+
 					},
 					subtitle: {
 						//check if the screen will take touch input.
@@ -38,7 +37,6 @@
 					},
 					series: [{
 						name: 'Live Cook Temp',
-						//  removes all data from firebase response except x and y.
 						data: this.cook_data,
 						color: '#6fcd98',
 						//this configures the maximum amount of points on the chart
@@ -60,15 +58,14 @@
 				}
 			}
 		}
-		,
-		props: [
-			'cook_data'
-		]
+
 	}
 </script>
 
 <style scoped>
-
+    .highcharts-root {
+        height: 40px;
+    }
 
 </style>
 
