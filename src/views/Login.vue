@@ -5,7 +5,7 @@
                 <h3>Sign In</h3>
                 <input placeholder="email" type="text"><br>
                 <input placeholder="password" type="password"><br>
-                <button>Connection</button>
+                <v-btn>Connection</v-btn>
                 <p>Don't have an account? Create One</p>
             </v-flex>
         </v-layout>
@@ -14,7 +14,7 @@
 
 <script>
 	export default {
-		name: "Login"
+		name: "Login",
 
 		data() {
 			return {}
