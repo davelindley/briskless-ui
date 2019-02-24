@@ -12,8 +12,9 @@ import SocialMedia from './views/SocialMedia'
 import Articles from './views/Articles'
 import Notes from './views/Notes'
 import Favorites from "./views/Favorites";
+import Login from "./views/Login"
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -79,6 +80,11 @@ export default new Router({
         name: 'favorites',
         component: Favorites
     },
+	  {
+		  path: '/login',
+		  name: 'login',
+		  component: Login
+	  }
 
   ]
 })
