@@ -13,6 +13,7 @@ import Articles from './views/Articles'
 import Notes from './views/Notes'
 import Favorites from "./views/Favorites";
 import Login from "./views/Login"
+import SignUp from "./views/SignUp"
 
 Vue.use(Router);
 
@@ -84,6 +85,11 @@ export default new Router({
 		  path: '/login',
 		  name: 'login',
 		  component: Login
+	  },
+	  {
+		  path: '/signup',
+		  name: 'signup',
+		  component: SignUp
 	  }
 
   ]
